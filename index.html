@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PPDB SMKS Mandiri Bandar Agung</title>
+  <meta name="description" content="Pendaftaran siswa baru SMKS Mandiri Bandar Agung">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #17233d;
+      line-height: 1.7;
+      background: #f5f7fb;
+    }
+
+    header {
+      background: #0b1f45;
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    header h2 {
+      color: #ffcc66;
+      font-size: 20px;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 85px 7%;
+      color: white;
+      text-align: center;
+      background: linear-gradient(135deg, #0b1f45, #2057a8);
+    }
+
+    .hero .label {
+      color: #ffcc66;
+      font-weight: bold;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.2;
+      margin: 20px auto;
+      max-width: 850px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 28px;
+      color: #e2eaf7;
+    }
+
+    .button {
+      display: inline-block;
+      background: #ffcc66;
+      color: #0b1f45;
+      padding: 13px 24px;
+      margin: 5px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .button.secondary {
+      border: 1px solid white;
+      color: white;
+      background: transparent;
+    }
+
+    section {
+      padding: 65px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      color: #0b1f45;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 5px 20px #10234a0b;
+    }
+
+    .card h3 {
+      color: #1749a6;
+      margin-bottom: 10px;
+    }
+
+    .number {
+      font-size: 30px;
+      font-weight: bold;
+      color: #1749a6;
+    }
+
+    .steps {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .steps p {
+      padding: 14px 18px;
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .register {
+      text-align: center;
+      color: white;
+      background: #102a59;
+    }
+
+    .register h2 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    footer {
+      background: #07152e;
+      color: #d7dfef;
+      padding: 30px 7%;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        padding: 65px 6%;
+      }
+
+      section {
+        padding: 50px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>SMKS MANDIRI</h2>
+
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#informasi">Informasi</a>
+      <a href="#jurusan">Jurusan</a>
+      <a href="#alur">Alur PPDB</a>
+      <a href="#daftar">Pendaftaran</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="label">PENERIMAAN PESERTA DIDIK BARU</div>
+
+      <h1>Selamat Datang di PPDB Online SMKS Mandiri</h1>
+
+      <p>
+        SMKS Mandiri Bandar Agung membuka kesempatan
+        bagi calon siswa untuk melanjutkan pendidikan
+        kejuruan dan mengembangkan potensi diri.
+      </p>
+
+      <a class="button" href="#daftar">
+        Daftar Sekarang →
+      </a>
+
+      <a class="button secondary" href="#informasi">
+        Informasi PPDB
+      </a>
+    </section>
+
+    <section id="informasi">
+      <div class="section-title">
+        <h2>Informasi PPDB</h2>
+        <p>Persiapkan pendaftaranmu dari sekarang.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="number">01</div>
+          <h3>Pendaftaran Online</h3>
+          <p>
+            Isi formulir pendaftaran melalui Google Forms
+            menggunakan HP atau komputer.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">02</div>
+          <h3>Lengkapi Data</h3>
+          <p>
+            Masukkan identitas calon siswa dan data
+            orang tua dengan benar.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="number">03</div>
+          <h3>Konfirmasi</h3>
+          <p>
+            Hubungi panitia sekolah setelah formulir
+            berhasil dikirim.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="jurusan">
+      <div class="section-title">
+        <h2>Program Keahlian</h2>
+        <p>Sesuaikan bagian ini dengan jurusan resmi sekolah.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Teknik Komputer dan Jaringan</h3>
+          <p>
+            Belajar komputer, jaringan, internet,
+            dan teknologi digital.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Pemasaran</h3>
+          <p>
+            Belajar bisnis, promosi, pelayanan pelanggan,
+            dan pemasaran digital.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Program Keahlian Lainnya</h3>
+          <p>
+            Ganti bagian ini sesuai program keahlian
+            yang tersedia di sekolah.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="alur">
+      <div class="section-title">
+        <h2>Alur Pendaftaran</h2>
+      </div>
+
+      <div class="steps">
+        <p><strong>1.</strong> Buka formulir PPDB online.</p>
+        <p><strong>2.</strong> Isi data calon siswa dengan lengkap.</p>
+        <p><strong>3.</strong> Periksa jawaban lalu kirim formulir.</p>
+        <p><strong>4.</strong> Ikuti informasi lanjutan dari panitia.</p>
+      </div>
+    </section>
+
+    <section class="register" id="daftar">
+      <h2>Siap Bergabung dengan SMKS Mandiri?</h2>
+
+      <p>
+        Klik tombol di bawah untuk mengisi formulir
+        pendaftaran siswa baru.
+      </p>
+
+      <!-- GANTI TAUTAN DI BAWAH DENGAN GOOGLE FORM ASLI -->
+      <a
+        class="button"
+        href="https://forms.google.com/"
+        target="_blank"
+        rel="noopener noreferrer">
+        Buka Formulir Pendaftaran →
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <h3>SMKS MANDIRI BANDAR AGUNG</h3>
+    <p>Portal Penerimaan Peserta Didik Baru</p>
+    <p>© <span id="tahun"></span> SMKS Mandiri</p>
+  </footer>
+
+  <script>
+    document.getElementById("tahun").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
