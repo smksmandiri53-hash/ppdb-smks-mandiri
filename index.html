@@ -4,9 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PPDB SMKS Mandiri Bandar Agung</title>
-  <meta name="description" content="Pendaftaran siswa baru SMKS Mandiri Bandar Agung">
+  <meta name="theme-color" content="#0b1f45">
+  <meta name="description" content="Website resmi SPMB SMKS Mandiri Bandar Agung Tahun Pelajaran 2027/2028. Informasi pendaftaran, program keahlian, dan biaya pendidikan.">
+  <title>SPMB 2027/2028 | SMKS Mandiri Bandar Agung</title>
+
   <style>
+    :root {
+      --navy: #0b1f45;
+      --navy-light: #15376b;
+      --blue: #2057a8;
+      --gold: #ffcc66;
+      --gold-dark: #d9a441;
+      --white: #ffffff;
+      --bg: #f5f7fc;
+      --text: #17233d;
+      --muted: #68758b;
+      --border: #e3e9f2;
+      --shadow: 0 15px 45px rgba(11,31,69,.09);
+      --radius: 18px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,174 +32,784 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 85px;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      color: #17233d;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
-      background: #f5f7fb;
     }
 
-    header {
-      background: #0b1f45;
-      color: white;
-      padding: 18px 7%;
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1140px, 88%);
+      margin: auto;
+    }
+
+    .topbar {
+      background: #07152e;
+      color: #e4eaf5;
+      padding: 8px 0;
+      font-size: 12px;
+    }
+
+    .topbar-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 12px;
       flex-wrap: wrap;
-      gap: 15px;
     }
 
-    header h2 {
-      color: #ffcc66;
-      font-size: 20px;
+    header {
+      background: var(--navy);
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 15px;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .brand h2 {
+      font-size: 15px;
+      line-height: 1.35;
+      color: white;
+    }
+
+    .brand p {
+      font-size: 10px;
+      letter-spacing: 1.3px;
+      color: var(--gold);
+      margin-top: 3px;
     }
 
     nav {
       display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
+      align-items: center;
+      gap: 22px;
     }
 
     nav a {
-      color: white;
+      color: #edf2fb;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color .2s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--navy) !important;
+      padding: 10px 16px;
+      border-radius: 8px;
     }
 
     .hero {
-      padding: 85px 7%;
+      position: relative;
+      overflow: hidden;
       color: white;
-      text-align: center;
-      background: linear-gradient(135deg, #0b1f45, #2057a8);
+      background:
+        radial-gradient(ellipse at 90% 10%, rgba(255,204,102,.17), transparent 35%),
+        linear-gradient(130deg, #07152e 0%, #0b1f45 48%, #2057a8 100%);
+      padding: 95px 0 100px;
     }
 
-    .hero .label {
-      color: #ffcc66;
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border: 1px solid rgba(255,204,102,.16);
+      border-radius: 50%;
+      right: -170px;
+      bottom: -240px;
+      box-shadow: 0 0 0 45px rgba(255,255,255,.025),
+                  0 0 0 90px rgba(255,255,255,.02);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      text-align: center;
+      margin: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255,204,102,.5);
+      background: rgba(255,204,102,.09);
+      color: var(--gold);
+      border-radius: 100px;
+      padding: 8px 16px;
+      font-size: 11px;
       font-weight: bold;
-      letter-spacing: 2px;
-      font-size: 12px;
+      letter-spacing: 1.5px;
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 52px);
-      line-height: 1.2;
-      margin: 20px auto;
-      max-width: 850px;
+      font-size: clamp(34px, 5.5vw, 60px);
+      line-height: 1.13;
+      margin: 25px 0 20px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
     }
 
     .hero p {
-      max-width: 650px;
-      margin: 0 auto 28px;
-      color: #e2eaf7;
+      max-width: 670px;
+      margin: auto;
+      color: #dce6f7;
+      font-size: 16px;
     }
 
-    .button {
-      display: inline-block;
-      background: #ffcc66;
-      color: #0b1f45;
-      padding: 13px 24px;
-      margin: 5px;
-      border-radius: 7px;
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 14px 22px;
+      border-radius: 9px;
       text-decoration: none;
       font-weight: bold;
+      font-size: 14px;
+      border: 1px solid transparent;
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
     }
 
-    .button.secondary {
-      border: 1px solid white;
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(0,0,0,.13);
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-outline {
+      border-color: rgba(255,255,255,.55);
       color: white;
-      background: transparent;
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero-note {
+      margin-top: 25px;
+      color: #d1dcef;
+      font-size: 12px;
+    }
+
+    .stats {
+      position: relative;
+      z-index: 2;
+      margin-top: -35px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .stat {
+      padding: 23px 15px;
+      text-align: center;
+    }
+
+    .stat + .stat {
+      border-left: 1px solid var(--border);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 15px;
+      color: var(--navy);
+    }
+
+    .stat span {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
     }
 
     section {
-      padding: 65px 7%;
+      padding: 82px 0;
     }
 
-    .section-title {
+    .section-heading {
+      max-width: 700px;
       text-align: center;
-      margin-bottom: 35px;
+      margin: 0 auto 40px;
     }
 
-    .section-title h2 {
-      color: #0b1f45;
-      font-size: 30px;
-      margin-bottom: 10px;
+    .section-heading .overline {
+      color: #a87518;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(27px, 4vw, 37px);
+      line-height: 1.25;
+      margin: 10px 0 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .promo {
+      padding: 30px 0 15px;
+    }
+
+    .promo-box {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(120deg, #0b1f45, #173d79);
+      color: white;
+      padding: 48px 35px;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .promo-box::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 1px solid rgba(255,204,102,.22);
+      border-radius: 50%;
+      right: -100px;
+      top: -170px;
+      box-shadow: 0 0 0 35px rgba(255,255,255,.025),
+                  0 0 0 70px rgba(255,255,255,.02);
+    }
+
+    .promo-content,
+    .promo-highlight {
+      position: relative;
+      z-index: 1;
+    }
+
+    .promo-tag {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .promo h2 {
+      font-size: clamp(27px, 4vw, 39px);
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .promo p {
+      color: #dce6f7;
+      font-size: 14px;
+    }
+
+    .promo-highlight {
+      text-align: center;
+      border: 1px solid rgba(255,204,102,.6);
+      background: rgba(255,255,255,.055);
+      border-radius: 16px;
+      padding: 25px 18px;
+    }
+
+    .promo-highlight .big {
+      display: block;
+      font-size: clamp(44px, 6vw, 68px);
+      line-height: 1.1;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    .promo-highlight strong {
+      display: block;
+      margin-top: 9px;
+      font-size: 13px;
+    }
+
+    .promo-highlight small {
+      display: block;
+      margin-top: 12px;
+      color: #e1e8f5;
+      font-size: 11px;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .card {
       background: white;
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 5px 20px #10234a0b;
+      padding: 27px 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 5px 22px rgba(11,31,69,.035);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: #edf3ff;
+      font-size: 25px;
+      margin-bottom: 20px;
     }
 
     .card h3 {
-      color: #1749a6;
+      color: var(--navy);
+      font-size: 17px;
+      line-height: 1.4;
       margin-bottom: 10px;
     }
 
-    .number {
-      font-size: 30px;
-      font-weight: bold;
-      color: #1749a6;
+    .card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
     }
 
-    .steps {
-      max-width: 750px;
+    .card .code {
+      display: inline-block;
+      color: #a87518;
+      background: #fff6e3;
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: bold;
+      margin-bottom: 13px;
+    }
+
+    .why {
+      background: white;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+      max-width: 900px;
       margin: auto;
     }
 
-    .steps p {
-      padding: 14px 18px;
+    .why-item {
+      display: flex;
+      gap: 15px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .check {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #fff4d9;
+      color: #8c6218;
+      font-weight: bold;
+    }
+
+    .why-item h3 {
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .why-item p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .steps {
+      max-width: 790px;
+      margin: auto;
+      display: grid;
+      gap: 15px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 22px;
       background: white;
-      border-radius: 8px;
-      margin-bottom: 12px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: var(--gold);
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .step h3 {
+      color: var(--navy);
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .register {
-      text-align: center;
+      background: linear-gradient(135deg, #0b1f45, #15376b);
       color: white;
-      background: #102a59;
+      text-align: center;
     }
 
-    .register h2 {
-      font-size: 30px;
+    .register .section-heading h2 {
+      color: white;
+    }
+
+    .register .section-heading p {
+      color: #d7e2f5;
+    }
+
+    .register-panel {
+      max-width: 760px;
+      margin: auto;
+      border: 1px solid rgba(255,204,102,.45);
+      border-radius: 20px;
+      background: rgba(255,255,255,.045);
+      padding: 38px 25px;
+    }
+
+    .register-panel h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .register-panel p {
+      color: #dce6f7;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .register-panel .note {
+      font-size: 11px;
+      margin: 17px 0 0;
+      color: #dce6f7;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+    }
+
+    .contact-card h3 {
+      color: var(--navy);
       margin-bottom: 12px;
+      font-size: 17px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-card a {
+      color: #1749a6;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
     }
 
     footer {
       background: #07152e;
       color: #d7dfef;
-      padding: 30px 7%;
-      text-align: center;
-      font-size: 14px;
+      padding: 38px 0 20px;
     }
 
-    @media (max-width: 600px) {
-      header {
-        justify-content: center;
-        text-align: center;
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr;
+      gap: 30px;
+      padding-bottom: 28px;
+    }
+
+    footer h3 {
+      color: var(--gold);
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    footer p,
+    footer a {
+      color: #c6d1e4;
+      font-size: 12px;
+    }
+
+    footer a {
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--gold);
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 7px;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 18px;
+      text-align: center;
+      color: #aebbd0;
+      font-size: 11px;
+    }
+
+    .floating-register {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 90;
+      box-shadow: 0 7px 25px rgba(11,31,69,.25);
+    }
+
+    @media (max-width: 950px) {
+      .navbar {
+        flex-direction: column;
+        padding: 17px 0;
+        gap: 17px;
       }
 
       nav {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .promo-box {
+        grid-template-columns: 1fr;
+      }
+
+      .promo-highlight {
+        max-width: 430px;
+        width: 100%;
+        margin: auto;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        width: 90%;
+      }
+
+      .topbar-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .navbar {
+        gap: 14px;
+      }
+
+      nav {
+        gap: 10px 14px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .nav-cta {
+        padding: 8px 11px;
       }
 
       .hero {
-        padding: 65px 6%;
+        padding: 67px 0 78px;
+      }
+
+      .hero h1 {
+        letter-spacing: -.6px;
+      }
+
+      .hero p {
+        font-size: 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        padding: 15px;
+      }
+
+      .stat + .stat {
+        border-left: 0;
+        border-top: 1px solid var(--border);
       }
 
       section {
-        padding: 50px 6%;
+        padding: 62px 0;
+      }
+
+      .cards,
+      .why-grid,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .promo {
+        padding-top: 25px;
+      }
+
+      .promo-box {
+        padding: 30px 22px;
+        border-radius: 16px;
+      }
+
+      .card {
+        padding: 24px;
+      }
+
+      .step {
+        padding: 17px;
+        gap: 13px;
+      }
+
+      .register-panel {
+        padding: 28px 18px;
+      }
+
+      .floating-register {
+        right: 12px;
+        bottom: 12px;
+        padding: 12px 15px;
+        font-size: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -190,145 +817,367 @@
 
 <body>
 
-  <header>
-    <h2>SMKS MANDIRI</h2>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>SMKS Mandiri Bandar Agung</span>
+      <span>SPMB Tahun Pelajaran 2027/2028</span>
+    </div>
+  </div>
 
-    <nav>
-      <a href="#beranda">Beranda</a>
-      <a href="#informasi">Informasi</a>
-      <a href="#jurusan">Jurusan</a>
-      <a href="#alur">Alur PPDB</a>
-      <a href="#daftar">Pendaftaran</a>
-    </nav>
+  <header>
+    <div class="container navbar">
+      <a href="#beranda" class="brand" aria-label="Beranda SMKS Mandiri">
+        <div class="brand-mark">SMK</div>
+        <div>
+          <h2>SMKS MANDIRI<br>BANDAR AGUNG</h2>
+          <p>SIAP BERKARYA · SIAP BERWIRAUSAHA</p>
+        </div>
+      </a>
+
+      <nav aria-label="Navigasi utama">
+        <a href="#beranda">Beranda</a>
+        <a href="#informasi">Informasi</a>
+        <a href="#jurusan">Jurusan</a>
+        <a href="#alur">Alur PPDB</a>
+        <a href="#kontak">Kontak</a>
+        <a class="nav-cta" href="#daftar">Daftar Sekarang ↗</a>
+      </nav>
+    </div>
   </header>
 
   <main>
     <section class="hero" id="beranda">
-      <div class="label">PENERIMAAN PESERTA DIDIK BARU</div>
+      <div class="container hero-content">
+        <div class="eyebrow">✦ PENERIMAAN SISWA BARU 2027/2028</div>
 
-      <h1>Selamat Datang di PPDB Online SMKS Mandiri</h1>
+        <h1>
+          Wujudkan Masa Depanmu Bersama
+          <span>SMKS Mandiri</span>
+        </h1>
 
-      <p>
-        SMKS Mandiri Bandar Agung membuka kesempatan
-        bagi calon siswa untuk melanjutkan pendidikan
-        kejuruan dan mengembangkan potensi diri.
-      </p>
+        <p>
+          Saatnya mengembangkan keterampilan, kreativitas, dan jiwa
+          wirausaha. Pilih program keahlian yang sesuai dengan minatmu
+          dan persiapkan langkah menuju masa depan.
+        </p>
 
-      <a class="button" href="#daftar">
-        Daftar Sekarang →
-      </a>
+        <div class="hero-buttons">
+          <a class="btn btn-gold" href="#daftar">
+            Mulai Pendaftaran <span>→</span>
+          </a>
+          <a class="btn btn-outline" href="#jurusan">
+            Lihat Program Keahlian
+          </a>
+        </div>
 
-      <a class="button secondary" href="#informasi">
-        Informasi PPDB
-      </a>
+        <div class="hero-note">
+          Tahun Pelajaran 2027/2028 · Pendaftaran calon siswa baru
+        </div>
+      </div>
     </section>
 
-    <section id="informasi">
-      <div class="section-title">
-        <h2>Informasi PPDB</h2>
-        <p>Persiapkan pendaftaranmu dari sekarang.</p>
+    <div class="container stats" id="informasi">
+      <div class="stats-grid">
+        <div class="stat">
+          <strong>2027/2028</strong>
+          <span>Tahun Pelajaran</span>
+        </div>
+        <div class="stat">
+          <strong>4 Program Keahlian</strong>
+          <span>Pilih sesuai minat dan bakat</span>
+        </div>
+        <div class="stat">
+          <strong>Daftar Online</strong>
+          <span>Melalui HP atau komputer</span>
+        </div>
       </div>
+    </div>
 
-      <div class="cards">
-        <article class="card">
-          <div class="number">01</div>
-          <h3>Pendaftaran Online</h3>
-          <p>
-            Isi formulir pendaftaran melalui Google Forms
-            menggunakan HP atau komputer.
-          </p>
-        </article>
+    <section class="promo">
+      <div class="container">
+        <div class="promo-box">
+          <div class="promo-content">
+            <span class="promo-tag">✦ KESEMPATAN UNTUK CALON SISWA</span>
+            <h2>Pendidikan Lebih Terjangkau, Masa Depan Lebih Terarah!</h2>
+            <p>
+              Manfaatkan program gratis biaya pendidikan selama satu
+              tahun sesuai ketentuan sekolah. Calon siswa hanya
+              membayar seragam sekolah.
+            </p>
+            <div style="margin-top:23px">
+              <a href="#daftar" class="btn btn-gold">
+                Daftar Sekarang →
+              </a>
+            </div>
+          </div>
 
-        <article class="card">
-          <div class="number">02</div>
-          <h3>Lengkapi Data</h3>
-          <p>
-            Masukkan identitas calon siswa dan data
-            orang tua dengan benar.
-          </p>
-        </article>
-
-        <article class="card">
-          <div class="number">03</div>
-          <h3>Konfirmasi</h3>
-          <p>
-            Hubungi panitia sekolah setelah formulir
-            berhasil dikirim.
-          </p>
-        </article>
+          <div class="promo-highlight">
+            <span class="big">1 TAHUN</span>
+            <strong>GRATIS BIAYA PENDIDIKAN</strong>
+            <small>Hanya membayar seragam sekolah sesuai ketentuan sekolah.</small>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="jurusan">
-      <div class="section-title">
-        <h2>Program Keahlian</h2>
-        <p>Sesuaikan bagian ini dengan jurusan resmi sekolah.</p>
+      <div class="container">
+        <div class="section-heading">
+          <span class="overline">PROGRAM KEAHLIAN</span>
+          <h2>Pilih Jurusan, Bangun Masa Depan</h2>
+          <p>
+            Kenali bidang keahlian dan kembangkan kemampuanmu
+            bersama SMKS Mandiri Bandar Agung.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">💻</div>
+            <span class="code">01 · TKJ</span>
+            <h3>Teknik Komputer dan Jaringan</h3>
+            <p>
+              Mempelajari komputer, jaringan, internet, serta
+              teknologi informasi dan komunikasi.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">📈</div>
+            <span class="code">02 · PEMASARAN</span>
+            <h3>Pemasaran</h3>
+            <p>
+              Mengembangkan keterampilan bisnis, promosi produk,
+              pelayanan pelanggan, dan pemasaran digital.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">📊</div>
+            <span class="code">03 · AKUNTANSI</span>
+            <h3>Akuntansi</h3>
+            <p>
+              Mengenal pencatatan transaksi, pengelolaan keuangan,
+              dan penyusunan laporan keuangan.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🏍️</div>
+            <span class="code">04 · TBSM</span>
+            <h3>Teknik dan Bisnis Sepeda Motor</h3>
+            <p>
+              Mengenal perawatan, pemeriksaan, dan perbaikan
+              sepeda motor serta keterampilan bidang otomotif.
+            </p>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="cards">
-        <article class="card">
-          <h3>Teknik Komputer dan Jaringan</h3>
+    <section class="why">
+      <div class="container">
+        <div class="section-heading">
+          <span class="overline">ALASAN MEMILIH SEKOLAH KAMI</span>
+          <h2>Belajar Keterampilan untuk Masa Depan</h2>
           <p>
-            Belajar komputer, jaringan, internet,
-            dan teknologi digital.
+            Pendidikan kejuruan menjadi salah satu langkah untuk
+            mengembangkan potensi dan kesiapan menghadapi dunia kerja.
           </p>
-        </article>
+        </div>
 
-        <article class="card">
-          <h3>Pemasaran</h3>
-          <p>
-            Belajar bisnis, promosi, pelayanan pelanggan,
-            dan pemasaran digital.
-          </p>
-        </article>
+        <div class="why-grid">
+          <article class="why-item">
+            <div class="check">✓</div>
+            <div>
+              <h3>Pembelajaran Berorientasi Keterampilan</h3>
+              <p>Mengembangkan kemampuan yang relevan dengan bidang keahlian.</p>
+            </div>
+          </article>
 
-        <article class="card">
-          <h3>Program Keahlian Lainnya</h3>
-          <p>
-            Ganti bagian ini sesuai program keahlian
-            yang tersedia di sekolah.
-          </p>
-        </article>
+          <article class="why-item">
+            <div class="check">✓</div>
+            <div>
+              <h3>Kreativitas dan Potensi Siswa</h3>
+              <p>Mendorong siswa untuk mengenali minat dan mengembangkan bakat.</p>
+            </div>
+          </article>
+
+          <article class="why-item">
+            <div class="check">✓</div>
+            <div>
+              <h3>Dunia Kerja dan Kewirausahaan</h3>
+              <p>Membangun wawasan tentang pekerjaan, bisnis, dan usaha mandiri.</p>
+            </div>
+          </article>
+
+          <article class="why-item">
+            <div class="check">✓</div>
+            <div>
+              <h3>Program Pendidikan Terjangkau</h3>
+              <p>Program gratis biaya pendidikan selama satu tahun sesuai ketentuan sekolah.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="alur">
-      <div class="section-title">
-        <h2>Alur Pendaftaran</h2>
-      </div>
+      <div class="container">
+        <div class="section-heading">
+          <span class="overline">PROSES PENDAFTARAN</span>
+          <h2>Alur Pendaftaran Online</h2>
+          <p>Ikuti langkah berikut untuk mengisi formulir pendaftaran.</p>
+        </div>
 
-      <div class="steps">
-        <p><strong>1.</strong> Buka formulir PPDB online.</p>
-        <p><strong>2.</strong> Isi data calon siswa dengan lengkap.</p>
-        <p><strong>3.</strong> Periksa jawaban lalu kirim formulir.</p>
-        <p><strong>4.</strong> Ikuti informasi lanjutan dari panitia.</p>
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">01</div>
+            <div>
+              <h3>Buka Formulir Pendaftaran</h3>
+              <p>Klik tombol pendaftaran pada website ini untuk membuka Google Form.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">02</div>
+            <div>
+              <h3>Isi Data dengan Benar</h3>
+              <p>Lengkapi pertanyaan dan identitas yang diminta pada formulir.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">03</div>
+            <div>
+              <h3>Periksa dan Kirim</h3>
+              <p>Periksa kembali jawaban sebelum menekan tombol kirim di Google Form.</p>
+            </div>
+          </article>
+
+          <article class="step">
+            <div class="step-number">04</div>
+            <div>
+              <h3>Hubungi Panitia</h3>
+              <p>Hubungi panitia sekolah untuk memperoleh informasi lanjutan mengenai pendaftaran.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <section class="register" id="daftar">
-      <h2>Siap Bergabung dengan SMKS Mandiri?</h2>
+      <div class="container">
+        <div class="section-heading">
+          <span class="overline">PENDAFTARAN SPMB</span>
+          <h2>Langkah Pertamamu Dimulai di Sini</h2>
+          <p>
+            Bergabunglah dengan SMKS Mandiri Bandar Agung
+            pada Tahun Pelajaran 2027/2028.
+          </p>
+        </div>
 
-      <p>
-        Klik tombol di bawah untuk mengisi formulir
-        pendaftaran siswa baru.
-      </p>
+        <div class="register-panel">
+          <h3>Siap Menjadi Bagian dari SMKS Mandiri?</h3>
+          <p>
+            Tekan tombol berikut untuk membuka formulir
+            pendaftaran online melalui Google Forms.
+          </p>
 
-      <!-- GANTI TAUTAN DI BAWAH DENGAN GOOGLE FORM ASLI -->
-      <a
-        class="button"
-        href=https://docs.google.com/forms/d/e/1FAIpQLSe5U8N3afyB4qfSYB-w_RHmUEe1U139qlUQZgKBZwDA7KkMlw/viewform?usp=header
-        target="_blank"
-        rel="noopener noreferrer">
-        Buka Formulir Pendaftaran →
-      </a>
+          <a
+            class="btn btn-gold"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSe5U8N3afyB4qfSYB-w_RHmUEe1U139qlUQZgKBZwDA7KkMlw/viewform?usp=header"
+            target="_blank"
+            rel="noopener noreferrer">
+            Buka Formulir Pendaftaran ↗
+          </a>
+
+          <p class="note">
+            Pastikan data yang diisi sudah benar sebelum mengirim formulir.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontak">
+      <div class="container">
+        <div class="section-heading">
+          <span class="overline">HUBUNGI KAMI</span>
+          <h2>Informasi Pendaftaran</h2>
+          <p>Hubungi panitia untuk mendapatkan informasi lebih lanjut.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>📍 Alamat Sekolah</h3>
+            <p>
+              Jl. Panjang Sribawono KM.55, Bandar Agung,
+              Kecamatan Bandar Sribhawono, Kabupaten Lampung Timur,
+              Lampung.
+            </p>
+          </article>
+
+          <article class="contact-card">
+            <h3>📱 WhatsApp Pendaftaran</h3>
+            <p>
+              <a href="https://wa.me/6282162199063"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                082162199063 — Hubungi Panitia
+              </a>
+            </p>
+            <p style="margin-top:12px">
+              Jadwal yang tercantum pada brosur: 20 Desember.
+              Silakan konfirmasi jadwal dan periode pendaftaran
+              kepada panitia sekolah.
+            </p>
+          </article>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <h3>SMKS MANDIRI BANDAR AGUNG</h3>
-    <p>Portal Penerimaan Peserta Didik Baru</p>
-    <p>© <span id="tahun"></span> SMKS Mandiri</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>SMKS MANDIRI BANDAR AGUNG</h3>
+          <p>
+            Siap Berkarya, Siap Berwirausaha,
+            Siap Menghadapi Masa Depan.
+          </p>
+        </div>
+
+        <div>
+          <h3>Navigasi</h3>
+          <div class="footer-links">
+            <a href="#beranda">Beranda</a>
+            <a href="#jurusan">Program Keahlian</a>
+            <a href="#alur">Alur Pendaftaran</a>
+            <a href="#daftar">Daftar Online</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Informasi SPMB</h3>
+          <div class="footer-links">
+            <a href="#informasi">Tahun Pelajaran 2027/2028</a>
+            <a href="#kontak">Alamat dan Kontak</a>
+            <a href="#daftar">Formulir Pendaftaran</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        &copy; <span id="tahun"></span> SMKS Mandiri Bandar Agung.
+        Seluruh hak cipta dilindungi.
+      </div>
+    </div>
   </footer>
+
+  <a class="btn btn-gold floating-register" href="#daftar">
+    Daftar Online ↗
+  </a>
 
   <script>
     document.getElementById("tahun").textContent =
