@@ -146,10 +146,9 @@
       position: relative;
       overflow: hidden;
       color: white;
-      background:
-        linear-gradient(90deg, rgba(5,44,32,.97) 0%, rgba(7,61,43,.91) 43%, rgba(7,61,43,.42) 100%),
-        url("images/brand-ambassador-utama.jpeg") center 38% / cover no-repeat;
-      padding: 95px 0 100px;
+      background: radial-gradient(circle at 82% 15%, rgba(202,242,216,.18), transparent 28%),
+                  linear-gradient(125deg, #062e21 0%, #075c3d 58%, #0b7c52 100%);
+      padding: 72px 0 82px;
     }
 
     .hero::before {
@@ -165,12 +164,52 @@
                   0 0 0 90px rgba(255,255,255,.02);
     }
 
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      align-items: center;
+      gap: 42px;
+    }
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 850px;
+      max-width: 650px;
       text-align: left;
-      margin: 0 auto 0 0;
+      margin: 0;
+    }
+    .hero-photo {
+      position: relative;
+      min-height: 420px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 28px 70px rgba(0,0,0,.25);
+      background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.02));
+    }
+    .hero-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 32%;
+    }
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 55% 0 0;
+      background: linear-gradient(transparent, rgba(3,36,25,.68));
+      pointer-events: none;
+    }
+    .hero-photo-label {
+      position: absolute;
+      z-index: 2;
+      bottom: 20px;
+      left: 22px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .6px;
     }
 
     .eyebrow {
@@ -199,15 +238,15 @@
     }
 
     .hero p {
-      max-width: 670px;
-      margin: auto;
-      color: #dce6f7;
+      max-width: 620px;
+      margin: 0;
+      color: #e1f3e8;
       font-size: 16px;
     }
 
     .hero-buttons {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 32px;
@@ -246,7 +285,7 @@
 
     .hero-note {
       margin-top: 25px;
-      color: #d1dcef;
+      color: #d1eadb;
       font-size: 12px;
     }
 
@@ -325,7 +364,7 @@
     .promo-box {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(120deg, #073d2b, #173d79);
+      background: linear-gradient(120deg, #06432e, #08794e);
       color: white;
       padding: 48px 35px;
       border-radius: 22px;
@@ -545,7 +584,7 @@
     }
 
     .register {
-      background: linear-gradient(135deg, #073d2b, #0b6847);
+      background: linear-gradient(135deg, #063b29, #08794e);
       color: white;
       text-align: center;
     }
@@ -675,91 +714,7 @@
 
 
     /* BRAND AMBASSADOR */
-    .ambassador-section {
-      padding: 76px 0;
-      background: #fff;
-    }
-    .ambassador-feature {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-      align-items: stretch;
-      margin-bottom: 22px;
-    }
-    .ambassador-photo {
-      overflow: hidden;
-      border-radius: 18px;
-      border: 2px solid var(--gold-dark);
-      background: #eaf0f8;
-      box-shadow: var(--shadow);
-      min-height: 280px;
-    }
-    .ambassador-photo img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      min-height: 280px;
-      object-fit: cover;
-    }
-    .ambassador-copy {
-      border-radius: 18px;
-      padding: 32px;
-      color: #fff;
-      background: linear-gradient(145deg, #052c20, #0b6847);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .ambassador-copy .overline {
-      color: var(--gold);
-      font-size: 11px;
-      letter-spacing: 2px;
-      font-weight: 800;
-    }
-    .ambassador-copy h3 {
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.2;
-      margin: 12px 0;
-    }
-    .ambassador-copy p {
-      color: #dce6f7;
-      font-size: 14px;
-    }
-    .ambassador-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-    .ambassador-gallery figure {
-      overflow: hidden;
-      border-radius: 15px;
-      border: 1px solid var(--border);
-      background: white;
-      box-shadow: 0 5px 22px rgba(11,31,69,.06);
-    }
-    .ambassador-gallery img {
-      display: block;
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-    }
-    .ambassador-gallery figcaption {
-      padding: 13px 15px;
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 700;
-    }
-    @media (max-width: 700px) {
-      .ambassador-feature { grid-template-columns: 1fr; }
-      .ambassador-photo, .ambassador-photo img { min-height: 220px; }
-      .ambassador-copy { padding: 25px; }
-      .ambassador-gallery { grid-template-columns: 1fr 1fr; }
-      .ambassador-gallery img { height: 180px; }
-    }
-    @media (max-width: 430px) {
-      .ambassador-gallery { grid-template-columns: 1fr; }
-      .ambassador-gallery img { height: 240px; }
-    }
+    /* Single-image hero: old gallery and old photo references removed. */
 
     @media (max-width: 950px) {
       .navbar {
@@ -815,18 +770,19 @@
         padding: 8px 11px;
       }
 
-      .hero {
-        padding: 67px 0 78px;
-      }
+      .hero { padding: 48px 0 64px; }
+      .hero-layout { grid-template-columns: 1fr; gap: 28px; }
+      .hero-photo { min-height: 310px; order: -1; }
+      .hero-content { text-align: center; margin: auto; }
+      .hero p { margin: auto; }
+      .hero-buttons { justify-content: center; }
 
       .hero h1 {
         letter-spacing: -.6px;
       }
 
       .hero-content { text-align: center; margin: auto; }
-      .hero p {
-        font-size: 14px;
-      }
+      .hero p { font-size: 14px; }
 
       .hero-buttons {
         flex-direction: column;
@@ -927,8 +883,7 @@
         <a href="#beranda">Beranda</a>
         <a href="#informasi">Informasi</a>
         <a href="#jurusan">Jurusan</a>
-        <a href="#brand-ambassador">Brand Ambassador</a>
-        <a href="#alur">Alur PPDB</a>
+          <a href="#alur">Alur PPDB</a>
         <a href="#kontak">Kontak</a>
         <a class="nav-cta" href="#daftar">Daftar Sekarang ↗</a>
       </nav>
@@ -937,7 +892,8 @@
 
   <main>
     <section class="hero" id="beranda">
-      <div class="container hero-content">
+      <div class="container hero-layout">
+      <div class="hero-content">
         <div class="eyebrow">✦ PENERIMAAN SISWA BARU 2027/2028</div>
 
         <h1>
@@ -964,47 +920,13 @@
           Tahun Pelajaran 2027/2028 · Pendaftaran calon siswa baru
         </div>
       </div>
-    </section>
-
-
-    <section class="ambassador-section" id="brand-ambassador">
-      <div class="container">
-        <div class="section-heading">
-          <span class="overline">WAJAH SMKS MANDIRI</span>
-          <h2>Brand Ambassador Sekolah</h2>
-          <p>Kenali suasana dan semangat siswa SMKS Mandiri Bandar Agung dalam belajar, berkarya, dan mempersiapkan masa depan.</p>
-        </div>
-
-        <div class="ambassador-feature">
-          <div class="ambassador-photo">
-            <img src="images/brand-ambassador-utama.jpeg" alt="Brand Ambassador SMKS Mandiri Bandar Agung" loading="lazy">
-          </div>
-          <div class="ambassador-copy">
-            <span class="overline">SMKS MANDIRI BANDAR AGUNG</span>
-            <h3>Berani Berkarya.<br>Siap Menjadi Juara.</h3>
-            <p>Tempat mengembangkan keterampilan, kreativitas, kepercayaan diri, dan jiwa kewirausahaan untuk masa depan.</p>
-            <div style="margin-top:22px">
-              <a class="btn btn-gold" href="#daftar">Gabung Bersama Kami →</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ambassador-gallery">
-          <figure>
-            <img src="images/kegiatan-pembelajaran.jpeg" alt="Kegiatan pembelajaran siswa" loading="lazy">
-            <figcaption>Belajar melalui pengalaman nyata</figcaption>
-          </figure>
-          <figure>
-            <img src="images/brand-ambassador-2.jpeg" alt="Siswa SMKS Mandiri" loading="lazy">
-            <figcaption>Percaya diri dan siap berkarya</figcaption>
-          </figure>
-          <figure>
-            <img src="images/brand-ambassador-3.jpeg" alt="Kebersamaan siswa SMKS Mandiri" loading="lazy">
-            <figcaption>Kebersamaan dan semangat sekolah</figcaption>
-          </figure>
-        </div>
+      <div class="hero-photo">
+        <img src="images/smks-mandiri-student-showcase.jpg" alt="Siswa SMKS Mandiri Bandar Agung dalam kegiatan sekolah">
+        <div class="hero-photo-label">GENERASI MANDIRI · SIAP BERPRESTASI</div>
       </div>
+    </div>
     </section>
+
 
     <div class="container stats" id="informasi">
       <div class="stats-grid">
@@ -1075,7 +997,7 @@
           <article class="card">
             <div class="card-icon" aria-hidden="true">📈</div>
             <span class="code">02 · BDP</span>
-            <h3>Bisnis Daring dan Pemasaran</h3>
+            <h3>Bisnis Daring dan Bisnis Daring dan Pemasaran</h3>
             <p>
               Mengembangkan keterampilan bisnis, promosi produk,
               pelayanan pelanggan, e-commerce, dan pemasaran digital.
