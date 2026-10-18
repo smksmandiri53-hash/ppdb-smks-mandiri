@@ -144,11 +144,14 @@
 
     .hero {
       position: relative;
+      isolation: isolate;
       overflow: hidden;
       color: white;
-      background: radial-gradient(circle at 82% 15%, rgba(202,242,216,.18), transparent 28%),
-                  linear-gradient(125deg, #062e21 0%, #075c3d 58%, #0b7c52 100%);
-      padding: 72px 0 82px;
+      background: #052d21;
+      padding: 0;
+      min-height: min(720px, calc(100vh - 100px));
+      display: flex;
+      align-items: center;
     }
 
     .hero::before {
@@ -165,26 +168,38 @@
     }
 
     .hero-layout {
+      position: relative;
+      width: min(1320px, 90%);
+      min-height: min(720px, calc(100vh - 100px));
       display: grid;
-      grid-template-columns: 1.02fr .98fr;
+      grid-template-columns: 1fr;
       align-items: center;
-      gap: 42px;
+      gap: 0;
+      padding-top: 65px;
+      padding-bottom: 65px;
     }
     .hero-content {
       position: relative;
-      z-index: 1;
+      z-index: 3;
       max-width: 650px;
       text-align: left;
       margin: 0;
+      padding: clamp(22px, 3vw, 42px);
+      border-left: 4px solid var(--gold);
+      background: linear-gradient(90deg, rgba(3,25,50,.84), rgba(3,25,50,.52), transparent);
+      border-radius: 0 18px 18px 0;
+      text-shadow: 0 2px 18px rgba(0,0,0,.28);
     }
     .hero-photo {
-      position: relative;
-      min-height: 420px;
-      border: 1px solid rgba(255,255,255,.28);
-      border-radius: 24px;
+      position: absolute;
+      z-index: 0;
+      inset: 0 calc((90vw - 100vw) / 2);
+      min-height: 100%;
+      border: 0;
+      border-radius: 0;
       overflow: hidden;
-      box-shadow: 0 28px 70px rgba(0,0,0,.25);
-      background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.02));
+      box-shadow: none;
+      background: #052d21;
     }
     .hero-photo img {
       position: absolute;
@@ -192,24 +207,31 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 32%;
+      object-position: center 38%;
+      filter: saturate(.95);
     }
     .hero-photo::after {
       content: "";
       position: absolute;
-      inset: 55% 0 0;
-      background: linear-gradient(transparent, rgba(3,36,25,.68));
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(3,25,50,.94) 0%, rgba(3,25,50,.79) 31%, rgba(3,25,50,.32) 60%, rgba(3,25,50,.05) 100%),
+        linear-gradient(0deg, rgba(3,25,50,.34), transparent 38%);
       pointer-events: none;
     }
     .hero-photo-label {
       position: absolute;
       z-index: 2;
-      bottom: 20px;
-      left: 22px;
+      bottom: 28px;
+      right: 5%;
       color: #fff;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .6px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255,204,102,.7);
+      background: rgba(3,25,50,.45);
+      border-radius: 99px;
     }
 
     .eyebrow {
@@ -770,18 +792,25 @@
         padding: 8px 11px;
       }
 
-      .hero { padding: 48px 0 64px; }
-      .hero-layout { grid-template-columns: 1fr; gap: 28px; }
-      .hero-photo { min-height: 310px; order: -1; }
-      .hero-content { text-align: center; margin: auto; }
-      .hero p { margin: auto; }
-      .hero-buttons { justify-content: center; }
+      .hero { min-height: 700px; }
+      .hero-layout { min-height: 700px; width: 92%; padding-top: 46px; padding-bottom: 58px; }
+      .hero-photo { inset: 0 calc((92vw - 100vw) / 2); }
+      .hero-photo img { object-position: 58% center; }
+      .hero-photo::after {
+        background: linear-gradient(90deg, rgba(3,25,50,.91) 0%, rgba(3,25,50,.72) 54%, rgba(3,25,50,.2) 100%),
+                    linear-gradient(0deg, rgba(3,25,50,.45), transparent 50%);
+      }
+      .hero-content { text-align: left; margin: 0; padding: 25px 18px; max-width: 560px; }
+      .hero h1 { font-size: clamp(36px, 10vw, 54px); }
+      .hero p { margin: 0; }
+      .hero-buttons { justify-content: flex-start; }
+      .hero-photo-label { right: 4%; bottom: 18px; font-size: 10px; letter-spacing: 1px; }
 
       .hero h1 {
         letter-spacing: -.6px;
       }
 
-      .hero-content { text-align: center; margin: auto; }
+      .hero-content { text-align: left; margin: 0; }
       .hero p { font-size: 14px; }
 
       .hero-buttons {
